@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Playout.Configuration.Model\Playout.Configuration.Model.csproj" />
+    <ProjectReference Include="..\Playout.Configuration.Contexts\Playout.Configuration.Contexts.csproj" />
+    <ProjectReference Include="..\Playout.Configuration.Interfaces\Playout.Configuration.Interfaces.csproj" />
+    <ProjectReference Include="..\Playout.Configuration.Repositories\Playout.Configuration.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
