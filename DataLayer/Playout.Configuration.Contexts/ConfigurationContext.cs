@@ -1,23 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Playout.Configuration.Model;
+﻿using System;
+using Playout.Configuration.Interfaces;
 
 namespace Playout.Configuration.Contexts
 {
-	public class ConfigurationContext : DbContext
+	public class ConfigurationContext : IConfigurationContext
 	{
-		public ConfigurationContext(DbContextOptions<ConfigurationContext> options) : base(options)
+		public string Scenarios { get; set; }
+		
+		public void Dispose()
 		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
 		}
 
-		public DbSet<Workstation> Workstations { get; set; }
-
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		protected virtual void Dispose(bool disposing)
 		{
-			modelBuilder.Entity<Workstation>().Property(x => x.Id).UseSqlServerIdentityColumn();
-			modelBuilder.Entity<Workstation>().HasKey(x => x.Id);
-			modelBuilder.Entity<Workstation>().Property(x => x.Version).IsRowVersion();
-			modelBuilder.Entity<Workstation>().Property(x => x.Loaded).HasColumnType("datetime2");
-			modelBuilder.Entity<Workstation>().Property(x => x.LastAccessed).HasColumnType("datetime2");
+			if (!disposing) return;
 		}
 	}
 }

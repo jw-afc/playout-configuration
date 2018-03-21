@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\DataLayer\Playout.Configuration.BaseModel\Playout.Configuration.BaseModel.csproj" />
-  </ItemGroup>
-
 </Project>

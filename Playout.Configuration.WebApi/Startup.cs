@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Playout.Configuration.Contexts;
@@ -20,7 +19,7 @@ namespace Playout.Configuration.WebApi
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<ConfigurationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConfigurationContext")));
+			services.Configure<ConfigurationContext>(Configuration.GetSection("ConfigurationContext"));
 			services.AddMvc();
 
 			services.AddSwaggerGen(c =>

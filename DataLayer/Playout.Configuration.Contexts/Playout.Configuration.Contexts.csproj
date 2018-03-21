@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Playout.Configuration.Model\Playout.Configuration.Model.csproj" />
+    <ProjectReference Include="..\Playout.Configuration.Interfaces\Playout.Configuration.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

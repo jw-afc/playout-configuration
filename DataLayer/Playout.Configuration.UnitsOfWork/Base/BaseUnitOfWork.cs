@@ -1,23 +1,17 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore;
 using Playout.Configuration.Interfaces;
 
 namespace Playout.Configuration.UnitsOfWork.Base
 {
 	public abstract class BaseUnitOfWork : IUnitOfWork
 	{
-		public DbContext Context { get; }
+		public IConfigurationContext Context { get; }
 
-		protected BaseUnitOfWork(DbContext context)
+		protected BaseUnitOfWork(IConfigurationContext context)
 		{
 			Context = context;
 		}
-
-		public void Save()
-		{
-			Context.SaveChanges();
-		}
-
+		
 		private bool _disposed;
 
 		protected virtual void Dispose(bool disposing)
